@@ -1,27 +1,26 @@
 //
-//  GeneralViewModel.swift
+//  BusinessViewModel.swift
 //  NewsApp
 //
-//  Created by Даниил Павленко on 29.05.2023.
+//  Created by Даниил Павленко on 04.06.2023.
 //
 
 import Foundation
 
-protocol GeneralViewModelProtocol {
+protocol BusinessViewModelProtocol {
     var reloadData: (() -> Void)? { get set }
     var showError: ((String) -> Void)? { get set }
     var reloadCell: ((Int) -> Void)? { get set }
     
     var numberOfCells: Int { get }
     
+    func loadData()
     func getArticle(for row: Int) -> ArticleCellViewModel
 }
 
-final class GeneralViewModel: GeneralViewModelProtocol {
+final class BusinessViewModel: BusinessViewModelProtocol {
     var reloadCell: ((Int) -> Void)?
-    
     var showError: ((String) -> Void)?
-    
     var reloadData: (() -> Void)?
     
     // MARK: - Properties
@@ -38,10 +37,6 @@ final class GeneralViewModel: GeneralViewModelProtocol {
     }
     
     // MARK: - Life Cycle
-    init() {
-        loadData()
-    }
-    
     
     // MARK: - Methods
     func getArticle(for row: Int) -> ArticleCellViewModel {
@@ -50,7 +45,6 @@ final class GeneralViewModel: GeneralViewModelProtocol {
     
     // MARK: - Private methods
     private func loadImage() {
-//        guard let url = URL(string: articles[row].imageUrl), let data = try? Data(contentsOf: url) else { return }
         for (index, article) in articles.enumerated() {
             ApiManager.getImageData(url: article.imageUrl) { [weak self] result in
                 DispatchQueue.main.async {
@@ -67,8 +61,8 @@ final class GeneralViewModel: GeneralViewModelProtocol {
         }
     }
     
-    private func loadData() {
-        ApiManager.getNews(from: .technology) { [weak self] result in
+    func loadData() {
+        ApiManager.getNews(from: .business) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let articles):

@@ -12,7 +12,7 @@ final class GeneralCollectionViewCell: UICollectionViewCell {
     // MARK: - GUI Variables
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -28,7 +28,6 @@ final class GeneralCollectionViewCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Test title"
         label.textColor = .white
         
         return label

@@ -25,6 +25,7 @@
 		655DE7D42A24E1C100B5E17A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DE7D32A24E1C100B5E17A /* ApiManager.swift */; };
 		655DE7D72A24E79A00B5E17A /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DE7D62A24E79A00B5E17A /* NetworkingError.swift */; };
 		655DE7DA2A2CA1D000B5E17A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DE7D92A2CA1D000B5E17A /* NewsViewModel.swift */; };
+		655DE7DD2A2CC58A00B5E17A /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DE7DC2A2CC58A00B5E17A /* BusinessViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		655DE7D32A24E1C100B5E17A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		655DE7D62A24E79A00B5E17A /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		655DE7D92A2CA1D000B5E17A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		655DE7DC2A2CC58A00B5E17A /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				655DE7BF2A23762700B5E17A /* View */,
+				655DE7DB2A2CC55C00B5E17A /* BusinessViewModel */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -198,6 +201,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		655DE7DB2A2CC55C00B5E17A /* BusinessViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				655DE7DC2A2CC58A00B5E17A /* BusinessViewModel.swift */,
+			);
+			path = BusinessViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,6 +295,7 @@
 				655DE7DA2A2CA1D000B5E17A /* NewsViewModel.swift in Sources */,
 				655DE7CD2A24C7AB00B5E17A /* NewsResponseObject.swift in Sources */,
 				655DE7D42A24E1C100B5E17A /* ApiManager.swift in Sources */,
+				655DE7DD2A2CC58A00B5E17A /* BusinessViewModel.swift in Sources */,
 				655DE7B52A224D9700B5E17A /* BusinessViewController.swift in Sources */,
 				655DE7D72A24E79A00B5E17A /* NetworkingError.swift in Sources */,
 				655DE7D22A24CAC600B5E17A /* ArticleCellViewModel.swift in Sources */,

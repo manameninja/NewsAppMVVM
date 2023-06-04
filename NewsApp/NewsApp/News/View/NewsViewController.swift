@@ -22,7 +22,7 @@ final class NewsViewController: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -113,12 +113,12 @@ final class NewsViewController: UIViewController {
         
         imageView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(view.snp.width)
+            make.height.equalTo(250)
         }
         
         dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(edgeInset)
-            make.leading.trailing.equalToSuperview().inset(edgeInset)
+            make.top.equalTo(imageView.snp.bottom)
+            make.trailing.equalToSuperview().inset(edgeInset)
         }
         
         titleLabel.snp.makeConstraints { make in

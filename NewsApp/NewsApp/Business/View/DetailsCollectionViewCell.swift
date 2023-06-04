@@ -23,7 +23,6 @@ final class DetailsCollectionViewCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "TitleTest"
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 16)
         label.numberOfLines = 2
@@ -34,7 +33,6 @@ final class DetailsCollectionViewCell: UICollectionViewCell {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "descriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabeldescriptionLabel"
         label.textColor = .gray
         label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 2
@@ -51,6 +49,18 @@ final class DetailsCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+    func set(article: ArticleCellViewModel) {
+        titleLabel.text = article.title
+        descriptionLabel.text = article.description
+        
+        if let data = article.imageData, let image = UIImage(data: data) {
+            imageView.image = image
+        } else {
+            imageView.image = UIImage(named: "image") ?? UIImage.add
+        }
     }
     
     // MARK: - Private methods
