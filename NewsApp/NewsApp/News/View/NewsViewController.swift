@@ -113,7 +113,7 @@ final class NewsViewController: UIViewController {
         
         imageView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(300)
         }
         
         dateLabel.snp.makeConstraints { make in
