@@ -12,6 +12,7 @@ final class GeneralCollectionViewCell: UICollectionViewCell {
     // MARK: - GUI Variables
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
+        // if I use .scaleAspectFill, my image don't work correct..
         view.contentMode = .scaleAspectFit
         return view
     }()

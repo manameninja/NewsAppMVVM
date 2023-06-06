@@ -161,13 +161,14 @@ extension GeneralViewController: UISearchBarDelegate {
         }
     }
 }
-
+// If I use hideKeyboard in viewDidLoad tap on collectionView not working
+// Conflict Gesture
 extension GeneralViewController {
     // MARK: - Keyboard
     func hideKeyboardWhenTappedAround() {
-        let recognizertap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         
-        collectionView.addGestureRecognizer(recognizertap)
+        collectionView.addGestureRecognizer(recognizer)
     }
     
     @objc
