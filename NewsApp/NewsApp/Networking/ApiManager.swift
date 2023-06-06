@@ -8,14 +8,24 @@
 import Foundation
 
 final class ApiManager {
+    enum Category: String {
+        case general = "general"
+        case business = "business"
+        case technology = "technology"
+    }
     
-    private static let apiKey = "fd6eb6cf0b9e4c80b24bf33e07e64323"
+    private static let apiKey = "2e8b58035a654e979d4010352ada0d2e"
     private static let baseUrl = "https://newsapi.org/v2/"
-    private static let path = "everything"
-    
+    private static let path = "top-headlines"
+
     // Create url path and make request
-    static func getNews(completion: @escaping (Result<[ArticleResponseObject], Error>) -> ()) {
-        let stringUrl = baseUrl + path + "?sources=bbc-news&language=en" + "&apiKey=\(apiKey)"
+    static func getNews(from category: Category, page: Int, searchText: String?, completion: @escaping (Result<[ArticleResponseObject], Error>) -> ()) {
+        var searchParameter = ""
+        if let searchText = searchText {
+            searchParameter = "&q=\(searchText)"
+        }
+        
+        let stringUrl = baseUrl + path + "?category=\(category.rawValue)&language=en&page=\(page)" + searchParameter + "&apiKey=\(apiKey)"
         
         guard let url = URL(string: stringUrl) else { return }
         
@@ -49,6 +59,9 @@ final class ApiManager {
         if let error = error {
             completion(.failure(NetworkingError.networkingError(error)))
         } else if let data = data {
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(json ?? "")
+            
             do {
                 let model = try JSONDecoder().decode(NewsResponseObject.self, from: data)
                 
